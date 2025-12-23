@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoMaster - Jeu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Force visualization for MPA Mode */
+        .screen {
+            display: block !important;
+            opacity: 1 !important;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* CRITICAL: Force Feedback Colors */
+        button.option-btn.correct {
+            background-color: #00cc66 !important;
+            /* Green */
+            color: white !important;
+            border: 2px solid #00aa55 !important;
+            box-shadow: 0 0 10px #00cc66 !important;
+        }
+
+        button.option-btn.wrong {
+            background-color: #ff3333 !important;
+            /* Red */
+            color: white !important;
+            border: 2px solid #cc0000 !important;
+            opacity: 0.7 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Feedback Overlay -->
+    <div id="feedback-overlay" class="feedback-overlay hidden">
+        <div class="feedback-content">
+            <div id="feedback-icon"></div>
+            <div id="feedback-message"></div>
+        </div>
+    </div>
+
+    <!-- Game Header (Floating) -->
+    <div id="game-header" class="game-header">
+        <button id="exit-btn" class="icon-btn" aria-label="Quitter">
+            🚪
+        </button>
+        <div class="score-pill">
+            <span id="streak-counter">🔥 0</span>
+            <span class="divider">|</span>
+            <span id="current-score">0</span> / <span id="total-questions">10</span>
+        </div>
+        <div id="timer" class="timer-pill">⏳ 15s</div>
+    </div>
+
+    <div class="app-container">
+        <!-- HEADER (Logo only) -->
+        <header>
+            <div class="logo-container">
+                <span class="logo-icon">🌍</span>
+                <h1>GeoMaster</h1>
+            </div>
+            <button id="dark-mode-toggle" class="icon-btn"
+                style="background:none; border:none; cursor:pointer; font-size:1.5rem;">🌙</button>
+        </header>
+
+        <main>
+            <!-- Game Screen -->
+            <div id="game-screen" class="screen">
+                <div class="question-container">
+                    <h2 id="question-text">Chargement...</h2>
+                    <div id="question-content"></div>
+                </div>
+
+                <!-- Multiple Choice Options -->
+                <div id="options-grid" class="options-grid"></div>
+
+                <!-- Map Container -->
+                <div id="map-container" class="hidden"></div>
+            </div>
+
+            <!-- End Screen (Initially Hidden via JS) -->
+            <div id="end-screen" class="screen hidden">
+                <div style="text-align: center; justify-content: center; align-items: center;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Voyage Terminé !</h2>
+                    <div
+                        style="font-size: 6rem; font-weight: 900; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                        <span id="final-score">0</span>/<span id="final-total">10</span>
+                    </div>
+                    <p style="color: var(--text-light); font-size: 1.1rem; margin-bottom: 2rem;">
+                        Meilleur score : <strong id="best-score-display">0</strong>
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <button id="retry-btn" class="game-btn"
+                            style="background: var(--primary); color: white;">Rejouer 🔄</button>
+                        <button id="home-btn" class="game-btn">Menu 🏠</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

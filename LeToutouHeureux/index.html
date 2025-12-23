@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Toutou Heureux | Garderie & Spa Canin Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            🐾 Le Toutou Heureux
+        </div>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#apropos">À Propos</a></li>
+            <li><a href="#contact" class="btn-reservation">Réserver</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>Le Paradis des Chiens <br> <span class="highlight">Existe Vraiment</span></h1>
+            <p>Offrez à votre compagnon une expérience de luxe. Garderie, spa et soins personnalisés par des experts
+                passionnés.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Prendre Rendez-vous</a>
+                <a href="#services" class="btn-secondary">Découvrir nos Services</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Chien heureux courant">
+        </div>
+    </header>
+
+    <!-- Features Strip -->
+    <section class="features-strip">
+        <div class="feature">
+            <span class="icon">🏆</span>
+            <h3>Experts Qualifiés</h3>
+            <p>Personnel certifié comportementalisme.</p>
+        </div>
+        <div class="feature">
+            <span class="icon">🌳</span>
+            <h3>1000m² de Jardins</h3>
+            <p>Espaces verts sécurisés pour jouer.</p>
+        </div>
+        <div class="feature">
+            <span class="icon">📸</span>
+            <h3>Suivi Quotidien</h3>
+            <p>Photos et vidéos de votre toutou.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <h2>Nos Prestations d'Excellence</h2>
+            <div class="separator"></div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                </div>
+                <div class="card-content">
+                    <h3>Garderie de Jour</h3>
+                    <p>Une journée riche en activités, sociabilisation et siestes confortables.</p>
+                    <span class="price">À partir de 25€ / jour</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                </div>
+                <div class="card-content">
+                    <h3>Spa & Toilettage</h3>
+                    <p>Bain, coupe, soins des griffes et massage relaxant aux huiles essentielles.</p>
+                    <span class="price">À partir de 45€</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                </div>
+                <div class="card-content">
+                    <h3>Pension VIP</h3>
+                    <p>Des suites privées avec webcam pour des vacances sereines pendant votre absence.</p>
+                    <span class="price">À partir de 40€ / nuit</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Première Visite ?</h2>
+            <p>Bénéficiez de <strong>-20%</strong> sur votre première réservation avec le code <code>TOUTOU2024</code>
+            </p>
+            <a href="#contact" class="btn-white">En Profiter Maintenant</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contactez-nous</h2>
+                <p>Nous sommes impatients de rencontrer votre compagnon.</p>
+                <div class="info-item">
+                    <strong>📍 Adresse</strong> <br>
+                    12 Allée des Labradors, 75000 Paris
+                </div>
+                <div class="info-item">
+                    <strong>📞 Téléphone</strong> <br>
+                    01 23 45 67 89
+                </div>
+                <div class="info-item">
+                    <strong>📧 Email</strong> <br>
+                    bonjour@toutou-heureux.fr
+                </div>
+            </div>
+            <form class="booking-form" id="bookingForm">
+                <div class="form-group">
+                    <label>Nom du Maître</label>
+                    <input type="text" placeholder="Jean Dupont" required>
+                </div>
+                <div class="form-group">
+                    <label>Nom du Chien</label>
+                    <input type="text" placeholder="Rex" required>
+                </div>
+                <div class="form-group">
+                    <label>Service Souhaité</label>
+                    <select>
+                        <option>Garderie de Jour</option>
+                        <option>Spa & Toilettage</option>
+                        <option>Pension</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Envoyer la demande</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Le Toutou Heureux. Tous droits réservés.</p>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

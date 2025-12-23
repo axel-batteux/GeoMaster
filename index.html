@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoMaster - Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Force background to ensure no white edges */
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo-container">
+                <span class="logo-icon">🌍</span>
+                <h1>GeoMaster</h1>
+            </div>
+            <button id="dark-mode-toggle" class="icon-btn">🌙</button>
+        </header>
+
+        <main id="menu-screen">
+            <div class="menu-content">
+                <h2 class="subtitle">Nouvelle Partie</h2>
+
+                <!-- Region Selector -->
+                <div class="region-selector">
+                    <div class="region-card active" id="region-world" onclick="setRegion('world')">
+                        <img src="https://flagcdn.com/w80/un.png" alt="Monde"
+                            style="width: 40px; height: 30px; object-fit: cover; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <span>Monde</span>
+                    </div>
+                    <div class="region-card" id="region-france" onclick="setRegion('france')">
+                        <img src="https://flagcdn.com/w80/fr.png" alt="France"
+                            style="width: 40px; height: 30px; object-fit: cover; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <span>France</span>
+                    </div>
+                    <div class="region-card" id="region-usa" onclick="setRegion('usa')">
+                        <img src="https://flagcdn.com/w80/us.png" alt="USA"
+                            style="width: 40px; height: 30px; object-fit: cover; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <span>USA</span>
+                    </div>
+                </div>
+
+                <div style="display:flex; justify-content:center; margin-bottom:1.5rem;">
+                    <button onclick="showMultiplayerMenu()"
+                        style="background:linear-gradient(135deg, #8b5cf6, #ec4899); color:white; border:none; padding:0.8rem 1.5rem; border-radius:12px; font-weight:bold; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+                        ⚔️ Mode Multijoueur
+                    </button>
+                </div>
+
+                <!-- Settings -->
+                <div class="settings-grid">
+                    <div class="control-group" id="group-difficulty">
+                        <label>Difficulté</label>
+                        <select id="difficulty-select" class="glass-select">
+                            <option value="1">🟢 Débutant</option>
+                            <option value="2" selected>🟡 Voyageur</option>
+                            <option value="3">🔴 Expert</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Questions</label>
+                        <select id="question-count-select" class="glass-select">
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="all">Tout</option>
+                            <option value="infinite">Infini ♾️</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-grid" style="margin-top: 1rem;">
+                    <div class="control-group" id="continent-row">
+                        <label>Continent</label>
+                        <select id="continent-select" class="glass-select">
+                            <option value="all">Tout le Monde</option>
+                            <option value="Europe">Europe</option>
+                            <option value="Asie">Asie</option>
+                            <option value="Afrique">Afrique</option>
+                            <option value="Amériques">Amériques</option>
+                            <option value="Océanie">Océanie</option>
+                        </select>
+                    </div>
+                    <div class="control-group"
+                        style="flex-direction: row; align-items: center; justify-content: space-between;">
+                        <label for="survival-mode" style="cursor: pointer;">Mode Survie ⏳</label>
+                        <input type="checkbox" id="survival-mode"
+                            style="width:20px; height:20px; accent-color:#4cc9f0;">
+                    </div>
+                </div>
+
+                <!-- Modes -->
+                <h3 style="margin-top: 1.5rem; color: rgba(255,255,255,0.9);">Mode de Jeu</h3>
+                <div class="modes-grid">
+                    <div class="mode-card" id="btn-mode-1" onclick="handleModeClick(1)">
+                        <span class="emoji" id="icon-mode-1">🏳️</span>
+                        <h3 id="label-mode-1">Drapeaux</h3>
+                    </div>
+                    <div class="mode-card" id="btn-mode-2" onclick="handleModeClick(2)">
+                        <span class="emoji" id="icon-mode-2">🏛️</span>
+                        <h3 id="label-mode-2">Capitales</h3>
+                    </div>
+                    <div class="mode-card" id="btn-mode-3" onclick="handleModeClick(3)">
+                        <span class="emoji" id="icon-mode-3">🗺️</span>
+                        <h3 id="label-mode-3">Localisation</h3>
+                    </div>
+                    <div class="mode-card" id="btn-mode-mixed" onclick="handleModeClick('mixed')">
+                        <span class="emoji">🎲</span>
+                        <h3>Tout</h3>
+                    </div>
+                    <div class="mode-card" id="btn-mode-4" onclick="handleModeClick(4)" style="display: none;">
+                        <span class="emoji" id="icon-mode-4">🔄</span>
+                        <h3 id="label-mode-4">Inversé</h3>
+                    </div>
+                </div>
+
+                <!-- Start -->
+                <button id="start-game-btn" class="start-game-btn disabled" disabled>
+                    CHOISISSEZ UN MODE<br><span style="font-size: 0.8em; font-weight: 400;">pour commencer</span>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <div id="multiplayer-menu" class="hidden">
+        <h2 class="subtitle">Mode Multijoueur 🌍</h2>
+        <div class="settings-grid">
+            <div class="mode-card" onclick="mpCreateRoom()">
+                <div class="emoji">🆕</div>
+                <div class="label" style="font-weight:bold;">Créer une Salle</div>
+            </div>
+            <div class="control-group">
+                <label>Rejoindre une Salle</label>
+                <div style="display:flex; gap:10px;">
+                    <input type="text" id="room-code-input" placeholder="CODE" class="glass-select"
+                        style="text-transform:uppercase; text-align:center; letter-spacing:2px; font-weight:bold;">
+                    <button class="icon-btn" onclick="mpJoinRoom()" style="border-radius:12px;">➡️</button>
+                </div>
+            </div>
+        </div>
+        <button class="start-game-btn" onclick="showMainMenu()"
+            style="margin-top:1rem; background:#6b7280;">Retour</button>
+    </div>
+
+    <div id="lobby-screen" class="hidden">
+        <h1 class="title">Salle d'Attente</h1>
+        <h2 id="lobby-room-code" style="font-size:3rem; margin:1rem 0; color:var(--primary); text-align:center;">CODE:
+            ----</h2>
+
+        <div class="settings-panel">
+            <h3>Joueurs connectés</h3>
+            <ul id="lobby-player-list" style="list-style:none; padding:0; margin-top:1rem;">
+                <!-- Players -->
+            </ul>
+        </div>
+
+        <br>
+        <div id="host-controls" class="hidden">
+            <button class="start-game-btn" onclick="mpSignalStart()">LANCER LA PARTIE 🚀</button>
+        </div>
+        <p id="guest-msg" class="hidden" style="text-align:center; margin-top:1rem;">En attente de l'hôte...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
